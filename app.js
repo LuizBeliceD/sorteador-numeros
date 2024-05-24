@@ -1,15 +1,17 @@
 
-
 function sortear() {
     let quantidade = parseInt(document.getElementById('quantidade').value);
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
     let numero;
     let sorteados = [];
-    console.log(quantidade);
 
-    if (isNaN(quantidade) || isNaN(de) || isNaN(ate)) {
-        alert('Preencha todos os campos');
+    if (isNaN(quantidade) || isNaN(de) || isNaN(ate) || ate <= de) {
+        alert('Preencha todos os campo\n"Até o número" deve ser maior que o "Do número"');
+
+    } else if (quantidade > (ate - de +1)) {
+        alert('"Quantidade de números" deve ser menor que o intervalo de números possíveis')
+
     } else {
         for (let i = 0; i < quantidade; i++) {
 
@@ -26,7 +28,6 @@ function sortear() {
         if (document.getElementById('btn-reiniciar').classList.contains('container__botao-desabilitado')) {
             alterarStatusBotao();
         }
-    
 
     }
     
